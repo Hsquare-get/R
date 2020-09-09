@@ -1,4 +1,4 @@
-# TIL0908 (R의 자료형_팩터 / 데이터프레임)
+# TIL0908 (R의 자료형_팩터, 데이터프레임 / R연산자 / R데이터 입출력)
 
 ## (3) R의 데이터셋
 
@@ -362,18 +362,25 @@ ls()
 - 파일에서 데이터 읽어들이기
 
 ```R
-nums <- scan("sample_num.txt") # scan : 숫자 읽어오는데 특화
+# scan : 숫자 읽어오는데 특화
+nums <- scan("sample_num.txt")
 words_ansi <- scan("sample_ansi.txt", what="") 
 # what="" : what 매개변수에 null문자 주어서 숫자가 아닌 데이터(문자열or문자열+숫자)도 읽어온다.
 
 words_utf8 <- scan("sample_utf8.txt", what="", encoding="UTF-8") # UTF-8 반드시 대문자
 words_utf8_new <- scan("data/sample_utf8.txt", what="") # encoding="UTF-8" 없으면 한글 깨짐
 
-lines_ansi <- readLines("sample_ansi.txt") # 행단위로 읽음
+
+# 행단위로 읽음
+lines_ansi <- readLines("sample_ansi.txt")
 lines_urf8 <- readLines("sample_utf8.txt", encoding="UTF-8")
 
+
+# read.csv, 첫번째 행을 헤더로 인식해서 읽어온다
+# read.table, 데이터프레임 형식으로 읽어온다(헤더가 없으면 자동으로 열이름을 붙여준다)
 df1 <- read.csv("CSV파일 or CSV를 응답하는 URL")
 df2 <- read.table("일정한 단위(공백 또는 탭등)로 구성되어 있는 텍스트 파일 or URL")
+
 
 # 데이터 수집해온 것을 저장
 write.csv(파일명) # csv 파일로 저장
