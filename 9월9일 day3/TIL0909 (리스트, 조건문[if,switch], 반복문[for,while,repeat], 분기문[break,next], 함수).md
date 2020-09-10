@@ -414,14 +414,28 @@ next
 }
 
 # 함수호출
-변수명 <- 함수명()
+함수명 <- function() {}
 함수명()
 
 ```
 
 - **리턴할 데이터셋이 없으면 NULL을 리턴함**
+
 - return() 문이 생략된 경우에는 마지막으로 출력된 데이터 값이 자동으로 리턴된다. (권장X)
+
 - <span style="color:red;">아규먼트의 타입을 제한</span>하려는 경우에는 **is.XXX()** 함수를 활용
+
+  ```R
+  # 매개변수가 아니라 함수 안에서 아규먼트 타입 제한
+  f <- function(p1) {
+      if (is.numeric(p1)) {
+          print("numeric")
+      } else {
+          print("Not numeric")
+      }
+  }
+  ```
+
 - **함수내에서 전역변수에 값을 저장**하려는 경우 대입연산자로 **<span style="color:red;"><<-</span>** 을 사용
 
 
