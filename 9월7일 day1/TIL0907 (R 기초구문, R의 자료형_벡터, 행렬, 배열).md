@@ -98,11 +98,10 @@
 ![image-20200907160044178](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200907160044178.png)
 
 - 데이터셋(데이터 구조)으로서 1차원으로 사용된다. 하나의 데이터 값도 벡터로 취급된다.
-
 - <span style="color:red">**동일 타입의 데이터만으로 구성**</span>
 - 벡터 생성 방법 : c(), seq(), rep(), ':' 연산자
 - 내장 상수 벡터들 : pi, LETTERS, letters, month.name, month.abb
-- **인덱싱** :  **1부터 시작**
+- **인덱싱** :  **1부터 시작** (<span style="color:red">`which`는 TRUE인 인덱스를 c() 벡터 안에 담아서 준다</span>)
 - 주요 함수 : length(), names(), sort(), order() ...
 
 ```R
@@ -175,6 +174,7 @@ rainfall[rainfall > 100] # 100보다 큰 데이터 값을 추출
 
 
 # which, 조건이 TRUE인 데이터의 인덱스를 추출
+# which는 TRUE인 인덱스를 c() 벡터 안에 담아서 준다
 which(rainfall > 100) # 100보다 큰 데이터이 인덱스를 추출
 month.name[which(rainfall > 100)]
 month.abb[which(rainfall > 100)]
