@@ -22,7 +22,7 @@ node4 <- html_nodes(html, "body > h2"); node4
 html_text(node4)[1]
 
 # <ul> 태그의 자식 태그들 중 style 속성의 값이 green으로 끝나는 태그의 컨텐츠
-node5 <- html_nodes(html, "ul > [style$=green]"); node5 # ~으로 끝나는
+node5 <- html_nodes(html, "ul > [style$=green]"); node5 # $ : ~으로 끝나는
 html_text(node5)
 
 # 두번째 <h2> 태그의 컨텐츠
