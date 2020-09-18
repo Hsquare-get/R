@@ -44,6 +44,8 @@ java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalon
 | sapply(more,function(x){x$clickElement()})                   | 찾아진 태그에 클릭 이벤트 발생                     |
 | webElem **<-** remDr$findElement("css",  "body")                                       remDr$executeScript("scrollTo(0, document.body.scrollHeight)", args **=**                                                     list(webElem)) | 페이지를 아래로 내리는(스크롤)    효과             |
 
+
+
 ```R
 install.packages("RSelenium")
 library(RSelenium)
