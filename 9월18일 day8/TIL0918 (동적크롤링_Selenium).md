@@ -27,7 +27,7 @@ java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalon
 >
 > 이 때 셀레늄을 이용하면 렌더링을 통하여 동적으로 자바스크립트로 인해 만들어지는 내용을 가져올 수 있다.
 >
-> 셀레늄 서버를 통하여 렌더링을 대신 수행하도록 요청할 수 있기 때문에 크롬브라우저에 스크래핑하려는 페이지를 먼저 띄우게 한 후 (RSelenium 패키지)
+> RSelenium 패키지를 설치하고 셀레늄 서버를 통하여 렌더링을 대신 수행하도록 요청할 수 있다.
 
 
 
@@ -37,12 +37,12 @@ java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalon
 | ------------------------------------------------------------ | -------------------------------------------------- |
 | remDr <- remoteDriver(remoteServerAddr="localhost",port=4445,browserName="chrome") | Selenium  서버에 접속하고   remoteDriver 객체 리턴 |
 | remDr$open()                                                 | 크롬브라우저 오픈                                  |
-| remDr$navigate(url)                                          | 페이지 랜더링                                      |
-| doms <- remDr$findElements(using ="css selector", "컨텐트를추출하려는태그의선택자") | 태그들을 찾자                                      |
-| sapply(doms,function(x){x$getElementText()})                 | 찾아진 태그들의 컨텐트 추출                        |
-| more  <- remDr$findElements(using='css  selector', '클릭이벤트를강제발생시키려는태그의선택자') | 태그를 찾자                                        |
-| sapply(more,function(x){x$clickElement()})                   | 찾아진 태그에 클릭 이벤트 발생                     |
-| webElem **<-** remDr$findElement("css",  "body")                                       remDr$executeScript("scrollTo(0, document.body.scrollHeight)", args **=**                                                     list(webElem)) | 페이지를 아래로 내리는(스크롤)    효과             |
+| remDr$navigate(url)                                          | 페이지 렌더링                                      |
+| doms <- remDr$findElements(using="css", "컨텐트를추출하려는태그의선택자") | 태그들을 찾자                                      |
+| **sapply(doms, function(x) {x$getElementText()})**           | 찾아진 태그들의 컨텐트 추출                        |
+| more  <- remDr$findElements(using='css', '클릭이벤트를강제발생시키려는태그의선택자') | 태그를 찾자                                        |
+| **sapply(more, function(x) {x$clickElement()})**             | 찾아진 태그에 클릭 이벤트 발생                     |
+| webElem **<-** remDr$findElement("css selector",  "body")                                       remDr$executeScript("scrollTo(0, document.body.scrollHeight)", args **=**                                                     list(webElem)) | 페이지를 아래로 내리는(스크롤)    효과             |
 
 
 
@@ -74,7 +74,7 @@ remDr$navigate(url)
 # 단수형으로 노드 추출
 more <- remDr$findElement(using='css', '#cbox_module > div > div.u_cbox_sort > div.u_cbox_sort_option > div > ul > li:nth-child(2) > a')
 more$getElementTagName() # 태그네임 찾기 (a태그)
-more$getElementText()
+more$getElementText() # 태그 선택자의 컨텐트 추출
 more$clickElement() # 클릭수행
 
 
