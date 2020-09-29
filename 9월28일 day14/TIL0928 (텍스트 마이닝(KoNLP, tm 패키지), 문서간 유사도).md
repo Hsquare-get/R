@@ -273,7 +273,7 @@ m <- as.matrix(tdm); m
 v <- sort(rowSums(m), decreasing=T); v
 
 m1 <- as.matrix(weightTf(tdm)); m1
-m2. <- as.matrix(weightTfIdf(tdm)); m2
+m2 <- as.matrix(weightTfIdf(tdm)); m2
 
 ```
 
